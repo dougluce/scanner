@@ -18,6 +18,7 @@ class Scanner {
   onReady () {
     const options = { frame: true, height: 768, width: 1024, x: 0, y: 0, show: false }
     this.win = new BrowserWindow(options)
+    BrowserWindow.addDevToolsExtension('./devenv.chrome')
     this.win.webContents.once('did-stop-loading', () => this.grabPage())
     this.win.loadURL(this.url)
   }
